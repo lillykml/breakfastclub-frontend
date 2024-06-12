@@ -1,44 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Brunch from './components/Brunch'
 import Hero from './components/Hero'
 import NewBrunch from './components/NewBrunch'
+import brunchService from './services/brunches'
 
 
 function App() {
 
-  const initialbrunches = [
-    {
-      "id": 1,
-      "date": "21.07.2024",
-      "time": "10:30",
-      "location": "Emmis Kitchen",
-      "attendees": 4,
-      "spots": 8
-    },
-    {
-      "id": 2,
-      "date": "21.07.2024",
-      "time": "10:30",
-      "location": "Trachtenvogel",
-      "attendees": 4,
-      "spots": 8
-    },
-    {
-      "id": 3,
-      "date": "21.07.2024",
-      "time": "10:30",
-      "location": "Wimmer Bäcker",
-      "attendees": 4,
-      "spots": 8
-    }
-  ]
+  const [brunches, setBrunches] = useState([])
 
-  const [brunches, setBrunches] = useState(initialbrunches)
+  useEffect(() => {
+    brunchService
+    .getAll()
+    .then(initialBrunches => {
+      setBrunches(initialBrunches)
+    })
+  }, [])
 
 
   const createBrunch = (brunch) => {
-    setBrunches(brunches.concat(brunch))
+    brunchService
+    .create(brunch)
+    .then(response => {
+      setBrunches(brunches.concat(response))
+    })
   }
 
   return (
