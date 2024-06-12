@@ -5,16 +5,16 @@ const NewBrunch = ({ create }) => {
     const [brunchDate, setBrunchDate] = useState('')
     const [brunchTime, setBrunchTime] = useState('')
     const [brunchLocation, setBrunchLocation] = useState('')
+    const [brunchAddress, setBrunchAddress] = useState('')
     const [brunchSpots, setBrunchSpots] = useState('')
 
     const createNewBrunch = (event) => {
         event.preventDefault()
 
         const newBrunch = {
-            "date": brunchDate,
-            "time": brunchTime,
+            "datetime": new Date(brunchDate + 'T' + brunchTime).toISOString(),
             "location": brunchLocation,
-            "attendees": 1, // person creating the brunch
+            "address": brunchAddress,
             "spots": brunchSpots
         }
 
@@ -24,6 +24,7 @@ const NewBrunch = ({ create }) => {
         setBrunchTime('')
         setBrunchLocation('')
         setBrunchSpots('')
+        setBrunchAddress('')
     }
 
     return (
@@ -40,6 +41,10 @@ const NewBrunch = ({ create }) => {
             <div>
                 <label>Location</label>
                 <input type='text' value={brunchLocation} onChange={(event) => setBrunchLocation(event.target.value)}></input>
+            </div>
+            <div>
+                <label>Address</label>
+                <input type='text' value={brunchAddress} onChange={(event) => setBrunchAddress(event.target.value)}></input>
             </div>
             <div>
                 <label>Spots</label>
