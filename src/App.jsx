@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './App.css'
 import Brunch from './components/Brunch'
+import Hero from './components/Hero'
+import NewBrunch from './components/NewBrunch'
 
 
 function App() {
 
-  //const [brunches, setBrunches] = useState([])
-  const brunches = [
+  const initialbrunches = [
     {
       "id": 1,
       "date": "21.07.2024",
@@ -33,11 +34,18 @@ function App() {
     }
   ]
 
+  const [brunches, setBrunches] = useState(initialbrunches)
+
+
+  const createBrunch = (brunch) => {
+    setBrunches(brunches.concat(brunch))
+  }
+
   return (
     <>
-     <h1>Weekend Breakfast Club</h1>
-     <p>Join a weekend brunch to meet and connect with new people in your city.</p>
-     {brunches.map(brunch => <Brunch key={brunch.id} brunch={brunch}/>)}
+    <Hero />
+    <NewBrunch create={createBrunch}/>
+    {brunches.map(brunch => <Brunch key={brunch.id} brunch={brunch}/>)}
     </>
   )
 }
