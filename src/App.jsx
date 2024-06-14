@@ -5,6 +5,7 @@ import Hero from './components/Hero'
 import NewBrunch from './components/NewBrunch'
 import Login from './components/Login'
 import User from './components/User'
+import Toggleable from './components/Toggleable'
 import brunchService from './services/brunches'
 import loginService from './services/login'
 
@@ -60,7 +61,7 @@ function App() {
   return (
     <>
       <Hero />
-      {!user && <Login login={loginUser} />}
+      {!user && <Toggleable buttonLabel={"login"}><Login login={loginUser} /></Toggleable>}
       {user && 
         <>
           <User logout={logoutUser} user={user} /> 
