@@ -13,6 +13,7 @@ function App() {
 
   const [brunches, setBrunches] = useState([])
   const [user, setUser] = useState(null)
+  
 
   useEffect(() => {
     brunchService
@@ -36,6 +37,7 @@ function App() {
     .login(credentials)
     .then(response => {
       setUser(response)
+      brunchService.setToken(response.token)
     })
   }
 

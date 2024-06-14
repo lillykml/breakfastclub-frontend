@@ -1,6 +1,11 @@
 import axios from "axios"
 const baseUrl = '/api/brunches'
 
+let token = null
+
+const setToken = (newToken) => {
+    token = `Bearer ${newToken}`
+}
 
 const getAll = async () => {
     const response = await axios.get(baseUrl)
@@ -8,8 +13,13 @@ const getAll = async () => {
 }
 
 const create = async (newBrunch) => {
-    const response = await axios.post(baseUrl, newBrunch)
+
+    const config = {
+        headers: { Authorization: token },
+    }
+
+    const response = await axios.post(baseUrl, newBrunch, config)
     return response.data
 }
 
-export default { getAll, create }
+export default { getAll, create, setToken }
