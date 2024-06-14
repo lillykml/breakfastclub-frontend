@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types'
+
+
 const Brunch = ({ brunch }) => {
 
     const datetime = new Date(brunch.datetime);
@@ -10,6 +13,10 @@ const Brunch = ({ brunch }) => {
         <p>{brunch.attendees.length} / {brunch.spots} spots filled <button>Sign-Up</button></p>
         </>
     )
+}
+
+Brunch.propTypes = {
+    brunch: PropTypes.object.isRequired
 }
 
 export default Brunch

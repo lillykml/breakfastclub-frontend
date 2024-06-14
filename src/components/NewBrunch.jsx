@@ -1,4 +1,5 @@
 import { useState } from "react"
+import PropTypes from 'prop-types'
 
 const NewBrunch = ({ create }) => {
 
@@ -54,6 +55,10 @@ const NewBrunch = ({ create }) => {
         </form>
         </>
     )
+}
+
+NewBrunch.propTypes = {
+    create: PropTypes.func.isRequired
 }
 
 export default NewBrunch

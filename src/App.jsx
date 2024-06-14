@@ -23,6 +23,16 @@ function App() {
     })
   }, [])
 
+  
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem('loggedInUser')
+    if (loggedUserJSON) {
+      const loggedInUser = JSON.parse(loggedUserJSON)
+      setUser(loggedInUser)
+      brunchService.setToken(loggedInUser.token)
+    }
+  }, [])
+
 
   const createBrunch = (brunch) => {
     brunchService
@@ -38,11 +48,13 @@ function App() {
     .then(response => {
       setUser(response)
       brunchService.setToken(response.token)
+      window.localStorage.setItem('loggedInUser', JSON.stringify(response))
     })
   }
 
   const logoutUser = () => {
     setUser(null)
+    brunchService.setToken(null)
   }
 
   return (

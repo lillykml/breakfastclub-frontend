@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types'
+
+
 const User = ({ user, logout }) => {
 
     return(
@@ -6,6 +9,11 @@ const User = ({ user, logout }) => {
             <button onClick={logout}>Logout</button>
         </>
     )
+}
+
+User.propTypes = {
+    user: PropTypes.object.isRequired,
+    logout: PropTypes.func.isRequired
 }
 
 export default User
