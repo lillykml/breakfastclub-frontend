@@ -61,6 +61,12 @@ function App() {
     .catch(() => errorMessage('wrong username or password'))
   }
 
+  const signUpUser = async (brunchID) => {
+    const savedBrunch = await brunchService.signup(brunchID)
+    setBrunches(brunches.map(brunch => brunch.id !== brunchID ? brunch : savedBrunch))
+    successMessage('You have successfully signed up for the brunch')
+  }
+
   const logoutUser = () => {
     setUser(null)
     brunchService.setToken(null)
@@ -95,7 +101,7 @@ function App() {
           <Toggleable buttonLabel={'organize a new brunch'} ref={brunchFormRef}><NewBrunch create={createBrunch}/></Toggleable>
         </>
       }
-      {brunches.map(brunch => <Brunch key={brunch.id} brunch={brunch}/>)}
+      {brunches.map(brunch => <Brunch key={brunch.id} brunch={brunch} user={user} signup={() => signUpUser(brunch.id)}/>)}
     </>
   )
 }

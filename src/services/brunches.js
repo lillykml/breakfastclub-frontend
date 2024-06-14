@@ -22,4 +22,14 @@ const create = async (newBrunch) => {
     return response.data
 }
 
-export default { getAll, create, setToken }
+const signup = async (brunchId) => {
+
+    const config = {
+        headers: { Authorization: token },
+    }
+
+    const response = await axios.put(`${baseUrl}/${brunchId}/signup`, {}, config)
+    return response.data
+}
+
+export default { getAll, create, setToken, signup }
