@@ -65,7 +65,7 @@ function App() {
       {user && 
         <>
           <User logout={logoutUser} user={user} /> 
-          <NewBrunch create={createBrunch}/>
+          <Toggleable buttonLabel={'organize a new brunch'}><NewBrunch create={createBrunch}/></Toggleable>
         </>
       }
       {brunches.map(brunch => <Brunch key={brunch.id} brunch={brunch}/>)}
