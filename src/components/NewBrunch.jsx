@@ -30,28 +30,31 @@ const NewBrunch = ({ create }) => {
 
     return (
         <>
+        <h2 className="text-4xl mb-9">Organize a new brunch</h2>
         <form onSubmit={createNewBrunch}>
             <div>
-                <label>Date</label>
-                <input type='date' value={brunchDate} onChange={(event) => setBrunchDate(event.target.value)}></input>
+                <label className="label-style" >Date</label>
+                <input className="input-style" type='date' value={brunchDate} onChange={(event) => setBrunchDate(event.target.value)}></input>
             </div>
             <div>
-                <label>Time</label>
-                <input type='time' value={brunchTime} onChange={(event) => setBrunchTime(event.target.value)}></input>
+                <label className="label-style" >Time</label>
+                <input className="input-style" type='time' value={brunchTime} onChange={(event) => setBrunchTime(event.target.value)}></input>
             </div>
             <div>
-                <label>Location</label>
-                <input type='text' value={brunchLocation} onChange={(event) => setBrunchLocation(event.target.value)}></input>
+                <label className="label-style" >Location</label>
+                <input className="input-style" type='text' value={brunchLocation} onChange={(event) => setBrunchLocation(event.target.value)}></input>
             </div>
             <div>
-                <label>Address</label>
-                <input type='text' value={brunchAddress} onChange={(event) => setBrunchAddress(event.target.value)}></input>
+                <label className="label-style" >Address</label>
+                <input className="input-style" type='text' value={brunchAddress} onChange={(event) => setBrunchAddress(event.target.value)}></input>
             </div>
             <div>
-                <label>Spots</label>
-                <input type='number' value={brunchSpots} onChange={(event) => setBrunchSpots(event.target.value)}></input>
+                <label className="label-style" >Spots</label>
+                <input className="input-style" type='number' value={brunchSpots} onChange={(event) => setBrunchSpots(event.target.value)}></input>
             </div>
+            <div className="text-center">
             <button className="button" type='submit'>Create</button>
+            </div>
         </form>
         </>
     )
