@@ -71,7 +71,6 @@ function App() {
     setUser(null)
     brunchService.setToken(null)
     window.localStorage.removeItem('loggedInUser')
-    successMessage('Logged out user')
   }
 
   const errorMessage = (message) => {
