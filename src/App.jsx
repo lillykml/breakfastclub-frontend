@@ -91,18 +91,21 @@ function App() {
   }
 
   return (
-    <>
+    <div className='h-screen -mx-0'>
       <Hero />
       <Notification message={notification} type={notificationType} />
-      {!user && <Toggleable buttonLabel={"login"}><Login login={loginUser} /></Toggleable>}
+      <div className='flex flex-col items-center'>
       {user && 
         <>
           <User logout={logoutUser} user={user} /> 
           <Toggleable buttonLabel={'organize a new brunch'} ref={brunchFormRef}><NewBrunch create={createBrunch}/></Toggleable>
         </>
       }
+      <h2 className='text-4xl'>Next brunches happening</h2>
       {brunches.map(brunch => <Brunch key={brunch.id} brunch={brunch} user={user} signup={() => signUpUser(brunch.id)}/>)}
-    </>
+      {!user && <Toggleable buttonLabel={"login"}><Login login={loginUser} /></Toggleable>}
+      </div>
+    </div>
   )
 }
 

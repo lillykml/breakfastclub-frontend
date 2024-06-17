@@ -1,3 +1,16 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+body {
+    background-color: #F3E3CA;
+}
+
+* {
+    color: #0A2C44;
+    font-family: monospace;
+}
+
+.brunch {
+    background-color: #DCCAAE;
+}
