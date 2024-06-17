@@ -15,7 +15,7 @@ const Brunch = ({ brunch, user, signup }) => {
         <div className='m-2 rounded border border-gray-400 w-1/4 p-2.5 brunch'>
         <p>{formattedDate} {time}</p>
         <p>@ {brunch.locationName}</p>
-        <p>{brunch.attendees.length} / {brunch.spots} spots filled {user && <button onClick={signup}>Sign-Up</button>}</p>
+        <p>{brunch.attendees.length} / {brunch.spots} spots filled {user && <button className='button' onClick={signup}>Sign-Up</button>}</p>
         </div>
     )
 }

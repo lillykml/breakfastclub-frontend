@@ -51,7 +51,7 @@ const NewBrunch = ({ create }) => {
                 <label>Spots</label>
                 <input type='number' value={brunchSpots} onChange={(event) => setBrunchSpots(event.target.value)}></input>
             </div>
-            <button type='submit'>Create</button>
+            <button className="button" type='submit'>Create</button>
         </form>
         </>
     )
