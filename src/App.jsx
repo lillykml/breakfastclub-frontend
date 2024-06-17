@@ -101,8 +101,10 @@ function App() {
           <Toggleable buttonLabel={'organize a new brunch'} ref={brunchFormRef}><NewBrunch create={createBrunch}/></Toggleable>
         </>
       }
-      <h2 className='text-4xl'>Next brunches happening</h2>
-      {brunches.map(brunch => <Brunch key={brunch.id} brunch={brunch} user={user} signup={() => signUpUser(brunch.id)}/>)}
+      <div className='my-9'>
+        <h2 className='text-4xl mb-9'>Next brunches happening</h2>
+        {brunches.map(brunch => <Brunch key={brunch.id} brunch={brunch} user={user} signup={() => signUpUser(brunch.id)}/>)}
+      </div>
       {!user && <Toggleable buttonLabel={"login"}><Login login={loginUser} /></Toggleable>}
       </div>
     </div>

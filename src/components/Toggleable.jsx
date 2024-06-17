@@ -17,11 +17,11 @@ const Toggleable = forwardRef((props, refs) => {
     })
 
     return (
-        <div>
+        <div className="mb-9">
             <div style={hideWhenVisible}>
                 <button className="button" onClick={toggleVisibility}>{props.buttonLabel}</button>
             </div>
-            <div style={showWhenVisible}>
+            <div style={showWhenVisible} className="flex items-center flex-col">
                 {props.children}
                 <button className="button" onClick={toggleVisibility}>Cancel</button>
             </div>
