@@ -5,7 +5,6 @@
 @layer components {
 	.button {
         padding: 5px;
-        margin-left: 10px;
         border: 2px solid #0A2C44;
         border-radius: 5px;
         margin: 5px 0;

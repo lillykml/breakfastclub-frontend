@@ -28,7 +28,7 @@ const Brunch = ({ brunch, user, signup, deregister }) => {
         <div className='m-2 rounded border border-gray-400 p-2.5 brunch'>
         <p>{formattedDate} {time}</p>
         <p>@ {brunch.locationName}</p>
-        <p>{brunch.attendees.length} / {brunch.spots} spots filled
+        <p className='flex flex-col'>{brunch.attendees.length} / {brunch.spots} spots filled
             {user && !attends && <button className='button' onClick={signupUser}>Sign-Up</button>}
             {user && attends && <button className='button' onClick={deregisterUser}>Cancel</button>}</p>
         </div>
