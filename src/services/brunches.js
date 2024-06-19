@@ -32,4 +32,12 @@ const signup = async (brunchId) => {
     return response.data
 }
 
-export default { getAll, create, setToken, signup }
+const deregister = async (brunchId) => {
+    const config = {
+        headers: { Authorization: token },
+    }
+    const response = await axios.put(`${baseUrl}/${brunchId}/deregister`, {}, config)
+    return response.data
+}
+
+export default { getAll, create, setToken, signup, deregister }

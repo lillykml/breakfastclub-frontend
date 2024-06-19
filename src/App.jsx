@@ -55,6 +55,7 @@ function App() {
     .login(credentials)
     .then(response => {
       setUser(response)
+      console.log(response)
       brunchService.setToken(response.token)
       window.localStorage.setItem('loggedInUser', JSON.stringify(response))
     })
@@ -71,6 +72,12 @@ function App() {
     setUser(null)
     brunchService.setToken(null)
     window.localStorage.removeItem('loggedInUser')
+  }
+
+  const deregisterUser = async (brunchId) => {
+    const savedBrunch = await brunchService.deregister(brunchId)
+    setBrunches(brunches.map(brunch => brunch.id !== brunchId ? brunch : savedBrunch))
+    successMessage('You have successfully deregistered from the brunch')
   }
 
   const errorMessage = (message) => {
@@ -102,7 +109,7 @@ function App() {
       }
       <div className='my-9'>
         <h2 className='text-4xl mb-9'>Next brunches happening</h2>
-        {brunches.map(brunch => <Brunch key={brunch.id} brunch={brunch} user={user} signup={() => signUpUser(brunch.id)}/>)}
+        {brunches.map(brunch => <Brunch key={brunch.id} brunch={brunch} user={user} signup={() => signUpUser(brunch.id)} deregister={() => deregisterUser(brunch.id)}/>)}
       </div>
       {!user && <Toggleable buttonLabel={"login"}><Login login={loginUser} /></Toggleable>}
       </div>

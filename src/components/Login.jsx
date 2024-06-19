@@ -18,11 +18,11 @@ const Login = ({ login }) => {
             <h2 className="text-4xl mb-9">Login</h2>
             <form onSubmit={loginHandler} className="max-w-sm mx-auto">
                 <div className="mb-5">
-                    <label for="username" className="label-style" >Username </label>
+                    <label className="label-style" >Username </label>
                     <input className="input-style" id="username" type="text" value={username} onChange={(event) => setUsername(event.target.value)}></input>
                 </div>
                 <div className="mb-5">
-                    <label for="password" className="label-style" >Password </label>
+                    <label className="label-style" >Password </label>
                     <input className="input-style" id="password" type="password" value={password} onChange={(event) => setPassword(event.target.value)}></input>
                 </div>
                 <div className="text-center">
